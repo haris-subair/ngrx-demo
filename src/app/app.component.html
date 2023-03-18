@@ -1,0 +1,84 @@
+
+<div class="min-h-full">
+  <nav class="bg-gray-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <img class="h-8 w-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-white shadow">
+    <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900">Todo List</h1>
+    </div>
+  </header>
+  <main>
+    <div class="
+    mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+      <button class="bg-green-800 float-right text-white active:bg-green-800 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleModal()">
+        Add Todo
+      </button>
+    </div>
+    <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+     
+      <div class="relative rounded-xl overflow-auto todo-table">
+        <div class="shadow-sm overflow-hidden my-8">
+          <table class="border-collapse table-auto w-full text-sm">
+            <thead>
+              <tr>
+                <th class="border-b dark:border-slate-600 font-medium p-8 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">Todo</th>
+                <th class="border-b dark:border-slate-600 font-medium p-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">Id</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white dark:bg-slate-800">
+              <tr *ngFor="let todo of todosList$ | async">
+                <td class="border-b border-slate-100 dark:border-slate-700 p-8 text-slate-500 dark:text-slate-400">{{todo.content}} </td>
+                <td class="border-b border-slate-100 dark:border-slate-700 p-8 pl-8 text-slate-500 dark:text-slate-400">{{todo.id}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+
+<div *ngIf="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+  <div class="relative w-auto my-6 mx-auto max-w-6xl">
+    <!--content-->
+    <div class="modal-xl border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+      <!--header-->
+      <!--body-->
+      <div class="relative p-6 flex-auto">
+        <div class="w-full max-w-s">
+          <form class="bg-white  rounded  mb-4" (ngSubmit)="onSubmit()">
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="todoname">
+                Message
+              </label>
+              <input [(ngModel)]="content" name="FirstName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="todoname" type="text" autocomplete="off" placeholder="Add todo">
+            </div>
+          </form>
+        
+        </div>
+      </div>
+      <!--footer-->
+      <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+        <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleModal()">
+          Close
+        </button>
+        <button class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="onSubmit()">
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
